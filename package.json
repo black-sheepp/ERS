@@ -4,6 +4,7 @@
   "description": "Employee Review System WebApp",
   "main": "App.js",
   "scripts": {
+    "start": "nodemon App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "shivamguptanitw@gmail.com",
