@@ -2,29 +2,29 @@
 <h3 class="text-center mt-3">Create An Account</h3>
 <div class="login-box">
      <p>Sign Up</p>
-     <form>
+     <form action="/user/create-user" method="post">
           <div class="user-box">
-               <input required="" name="" type="text" />
+               <input required="" name="firstName" type="text" />
                <label>First Name</label>
           </div>
           <div class="user-box">
-               <input required="" name="" type="text" />
+               <input required="" name="lastName" type="text" />
                <label>Last Name</label>
           </div>
           <div class="user-box">
-               <input required="" name="" type="password" />
+               <input required="" name="password" type="password" />
                <label>Password</label>
           </div>
           <div class="user-box">
-               <input required="" name="" type="password" />
+               <input required="" name="confirm_password" type="password" />
                <label>Confirm Password</label>
           </div>
           <div class="user-box">
-               <input required="" name="" type="email" />
+               <input required="" name="email" type="email" />
                <label>Email</label>
           </div>
           <div class="user-box">
-               <input required="" name="" type="number" />
+               <input required="" name="Phone" type="number" />
                <label>Phone</label>
           </div>
           <div class="user-box">
@@ -32,25 +32,21 @@
                <label>Address</label>
           </div>
           <div class="user-box">
-               <input required="" name="" type="text" />
+               <input required="" name="linkedIn" type="text" />
                <label>LinkedIn</label>
           </div>
           <div class="user-box">
-               <input required="" name="" type="text" />
+               <input required="" name="github" type="text" />
                <label>GitHub</label>
           </div>
           <div>
-               <input type="radio" id="" name="" value="Admin" style="color: white; " disabled/>
+               <input type="radio" id="" name="role" value="Admin" style="color: white; " disabled/>
                <label for="" style="color: white;">Admin</label><br />
-               <input type="radio" id="" name="" value="Employee" style="color: white;" />
+               <input type="radio" id="" name="role" value="Employee" style="color: white;" />
                <label for="" style="color: white;">Employee</label><br />
           </div>
-          <a href="#">
-               <span></span>
-               <span></span>
-               <span></span>
-               <span></span>
+          <button type="submit" class="btn btn-light mt-1">
                Create Account
-          </a>
+          </button>
      </form>
 </div>
