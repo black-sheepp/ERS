@@ -1,3 +1,7 @@
 body{
     background-color: #f1faee;
 }
+
+a :hover{
+    color: #e9ff70;
+}

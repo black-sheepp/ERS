@@ -16,6 +16,11 @@
     margin-top: 2px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: #e9ff70;
+}
+
 .menu{
     margin-top: 12px;
 }
