@@ -1,0 +1,35 @@
+.header{
+    background-color: #001427;
+    height: 50px;
+    border-bottom: 5px solid #e9ff70;
+    color: white;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 2px;
+}
+
+.menu{
+    margin-top: 12px;
+}
+
+.menu-list{
+    display: flex;
+}
+
+.menu ul li{
+    list-style: none;
+    margin-right: 30px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+}
