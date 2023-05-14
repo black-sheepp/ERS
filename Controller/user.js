@@ -51,8 +51,9 @@ module.exports.signOut = function(req,res){
         });
 }
 
-module.exports.openProfile = function(req,res){
+module.exports.openProfile = async function(req,res){
      return res.render("profile",{
-          title: "Profile"
+          title: "Profile",
+          userone: await User.findById(req.params.id)
      })
 }

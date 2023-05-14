@@ -1,0 +1,19 @@
+.card {
+    width: 188px;
+    height: 250px;
+    border-radius: 20px;
+    background: #212121;
+    box-shadow: 10px 10px 20px #e9ff70,
+                -10px -10px 20px #e7f49a;
+   }
+
+.profile-pic{
+    width: 190px;
+    height: 254px;
+    border-radius: 20px;
+    border: 10px solid #001427;
+}
+
+.db-field{
+    width: 120px;
+}

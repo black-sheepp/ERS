@@ -1,1 +1,68 @@
-<h3 class="mt-3">Profile</h3>
+<link rel="stylesheet" href="/CSS/profile.css" />
+
+<h3 class="m-3">Profile</h3>
+
+<div class="container d-flex">
+    <div class="card">
+        <img
+             class="profile-pic"
+             src="https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+             alt=""
+        />
+   </div>
+     <div class="container">
+          <div class="mx-5">
+               <div class="d-flex">
+                    <p class="db-field">Name:</p>
+                    <p class="db-value"><%= userone.firstName %> <%= userone.lastName %></p>
+               </div>
+               <div class="d-flex">
+                    <p class="db-field">Profile:</p>
+                    <p class="db-value"><%= userone.jobProfile %></p>
+               </div>
+               <div class="d-flex">
+                    <p class="db-field">Company:</p>
+                    <p class="db-value"><%= userone.companyName %></p>
+               </div>
+               <div class="d-flex">
+                    <p class="db-field">Skills:</p>
+                    <p class="db-value"><%= userone.skills %></p>
+               </div>
+               <div class="d-flex">
+                    <p class="db-field">Email:</p>
+                    <p class="db-value"><%= userone.email %></p>
+               </div>
+               <div class="d-flex">
+                    <p class="db-field">Phone:</p>
+                    <p class="db-value"><%= userone.phone %></p>
+               </div>
+               <div class="d-flex">
+                    <p class="db-field">Address:</p>
+                    <p class="db-value"><%= userone.address %></p>
+               </div>
+               <div class="my-5 d-flex">
+                    <a
+                         href="<%= userone.linkedIn %>"
+                         target="_blank"
+                         style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
+                    >
+                         <i class="fa-brands fa-linkedin fa-2xl"></i> LinkedIn</a
+                    >
+                    <a
+                         href="<%= userone.github %>"
+                         target="_blank"
+                         style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
+                         ><i class="fa-brands fa-square-github fa-2xl"></i> GitHub</a
+                    >
+                    <% if(locals.user.id == userone.id) {%>
+                    <a
+                         href="/user/open-profile/<%= locals.user.id %>"
+                         style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
+                         ><i class="fa-solid fa-user-pen fa-xl"></i> Update Profile</a
+                    >
+                    <% } %>
+               </div>
+          </div>
+     </div>
+</div>
+
