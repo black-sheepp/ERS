@@ -29,12 +29,13 @@ module.exports.createSession = function(req,res){
      }else{
           return res.redirect('/user/employee-dash')
      }
-
 }
 
-module.exports.adminDash = function(req,res){
+module.exports.adminDash = async function(req,res){
+     
      return res.render("adminDash",{
-          title: "Admin"
+          title: "Admin",
+          allUser: await User.find({}).sort({firstName: 1})
      })
 }
 module.exports.employeeDash = function(req,res){
@@ -48,4 +49,10 @@ module.exports.signOut = function(req,res){
           if (err) { return next(err); }
           res.redirect('/');
         });
+}
+
+module.exports.openProfile = function(req,res){
+     return res.render("profile",{
+          title: "Profile"
+     })
 }

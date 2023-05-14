@@ -13,5 +13,6 @@ router.post(
 router.get("/admin-dash", passport.checkAuthentication, userctrl.adminDash);
 router.get("/employee-dash", passport.checkAuthentication, userctrl.employeeDash);
 router.get("/sign-out", passport.checkAuthentication, userctrl.signOut);
+router.get('/profile',passport.checkAuthentication,userctrl.openProfile);
 
 module.exports = router;

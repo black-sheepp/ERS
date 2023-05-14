@@ -1,1 +1,38 @@
-<h1>Admin Dashboard</h1>
+<link rel="stylesheet" href="/CSS/adminDash.css" />
+
+<h3 class="mt-3">Admin Dashboard</h3>
+<div class="container">
+     <table class="table">
+          <thead>
+               <tr class="border-line">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Action</th>
+               </tr>
+          </thead>
+          <tbody>
+                <% let i = 1 %>
+               <% for(user of allUser) {%>
+               <tr class="table-light">
+                    <th scope="row"><%= i %></th>
+                    <td><%= user.firstName %> <%= user.lastName %></td>
+                    <td><%= user.phone %></td>
+                    <td><%= user.email %></td>
+                    <td><%= 4.5 %></td>
+                    <td><%= user.address %></td>
+                    <td>4.5</td>
+                    <td>
+                         <a href=""><i class="fa-solid fa-list-check fa-beat mx-1" style="color: blue; padding-left: 5px;"></i></a>
+                         <a href=""><i class="fa-solid fa-address-card fa-beat" style="color: green;"></i></a>
+                    </td>
+               </tr>
+               <% i++ %>
+               <% } %>
+          </tbody>
+     </table>
+</div>
