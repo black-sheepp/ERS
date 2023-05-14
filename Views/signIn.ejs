@@ -1,17 +1,18 @@
 <link rel="stylesheet" href="/CSS/signIn.css" />
-<div class="container text-center">
+<h3 class="text-center mt-5">Sign in to your ERS Account</h3>
+<div class="container d-flex justify-content-center">
      <div class="login-box">
           <p>Sign In</p>
-          <form>
+          <form action="/user/create-session" method="post">
                <div class="user-box">
-                    <input required="" name="" type="text" />
+                    <input required="" name="email" type="email" />
                     <label>Email</label>
                </div>
                <div class="user-box">
-                    <input required="" name="" type="password" />
+                    <input required="" name="password" type="password" />
                     <label>Password</label>
                </div>
-               <button type="submit" class="btn btn-light mt-1">Sign In</button>
+               <button type="submit" class="btn btn-light m-2 ">Sign In</button>
           </form>
           <p>Don't have an account? <a href="/sign-up" class="a2">Sign up!</a></p>
      </div>

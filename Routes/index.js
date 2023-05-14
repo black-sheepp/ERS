@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const passport = require('passport')
 const homectrl = require('../Controller/home')
 
 router.get('/',homectrl.home)

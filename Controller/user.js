@@ -22,3 +22,30 @@ module.exports.createUser = async function (req, res) {
          console.log(err);
     }
 };
+
+module.exports.createSession = function(req,res){
+     if(req.user.role == "Admin"){
+          return res.redirect('/user/admin-dash')
+     }else{
+          return res.redirect('/user/employee-dash')
+     }
+
+}
+
+module.exports.adminDash = function(req,res){
+     return res.render("adminDash",{
+          title: "Admin"
+     })
+}
+module.exports.employeeDash = function(req,res){
+     return res.render("employeeDash",{
+          title: "Employee"
+     })
+}
+
+module.exports.signOut = function(req,res){
+     req.logout(function(err) {
+          if (err) { return next(err); }
+          res.redirect('/');
+        });
+}
