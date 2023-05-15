@@ -63,3 +63,19 @@ module.exports.updateProfile = function(req,res){
           title: 'Update Profile'
      })
 }
+
+module.exports.pleaseUpdate = async function(req,res){
+     try{
+          let user = await User.findOne(req.params._id);
+          if(user){
+               let updatedUser = await User.findByIdAndUpdate(req.params.id,req.body);
+               if(updatedUser){
+                    return res.redirect('back')
+               }
+          }else{
+               console.log("Unauthorised User")
+          }
+     }catch(err){
+          console.log(err)
+     }
+}

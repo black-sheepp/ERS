@@ -15,5 +15,6 @@ router.get("/employee-dash", passport.checkAuthentication, userctrl.employeeDash
 router.get("/sign-out", passport.checkAuthentication, userctrl.signOut);
 router.get('/profile/:id',passport.checkAuthentication,userctrl.openProfile);
 router.get('/update-profile/:id',passport.checkAuthentication,userctrl.updateProfile)
+router.post('/update-success/:id',passport.checkAuthentication,userctrl.pleaseUpdate)
 
 module.exports = router;
