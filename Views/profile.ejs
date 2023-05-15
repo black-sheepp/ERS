@@ -54,7 +54,7 @@
                          style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
                          ><i class="fa-brands fa-square-github fa-2xl"></i> GitHub</a
                     >
-                    <% if(locals.user.id == userone.id) {%>
+                    <% if(locals.user.role == "Admin") {%>
                     <a
                          href="/user/update-profile/<%= locals.user.id %>"
                          style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
