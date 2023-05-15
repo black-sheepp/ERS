@@ -1,7 +1,30 @@
-.table{
+.table {
     background-color: #001427 !important;
     color: white;
 }
-.border-line{
+
+.border-line {
     border-bottom: 4px solid #e9ff70;
+}
+
+
+#bottone1 {
+    padding: 5px 10px;
+    border-radius: 9px;
+    background: #001427;
+    border: 2px solid black;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+    color: white;
+}
+
+#bottone1:hover {
+    background-color: #e63946;
+}
+
+#bottone1:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #e9ff70;
 }

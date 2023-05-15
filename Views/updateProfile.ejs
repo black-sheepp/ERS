@@ -1,0 +1,130 @@
+<h3 class="m-3">Update Profile</h3>
+
+<div class="container">
+    <form action="/user/update-success/<%= user.id %>" method="post">
+        <div class="container" style="max-width: 450px; float: left">
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 120px">First Name</span>
+                  <input
+                       name="firstName"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.firstName %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">Last Name</span>
+                  <input
+                       name="lastName"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.lastName %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup" style="width: 120px">Email</span>
+                  <input
+                       name="email"
+                       type="email"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.email %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">Phone</span>
+                  <input
+                       name="phone"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.phone %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">Password</span>
+                  <input
+                       name="password"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.password %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">Address</span>
+                  <input
+                       name="address"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.address %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">GitHub</span>
+                  <input
+                       name="github"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.github %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">LinkedIn</span>
+                  <input
+                       name="linkedIn"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.linkedIn %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">Company</span>
+                  <input
+                       name="companyName"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.companyName %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">Job Profile</span>
+                  <input
+                       name="jobProfile"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.jobProfile %>"
+                  />
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 120px">Skills</span>
+                  <input
+                       name="skills"
+                       type="text"
+                       class="form-control"
+                       aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-sm"
+                       value="<%= user.skills %>"
+                  />
+             </div>
+             <button type="submit" class="btn btn-dark">Update Profile</button>
+        </div>
+   </form>
+</div>

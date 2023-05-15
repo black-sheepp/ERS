@@ -57,3 +57,9 @@ module.exports.openProfile = async function(req,res){
           userone: await User.findById(req.params.id)
      })
 }
+
+module.exports.updateProfile = function(req,res){
+     return res.render("updateProfile",{
+          title: 'Update Profile'
+     })
+}
