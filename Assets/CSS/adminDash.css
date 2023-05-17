@@ -14,6 +14,7 @@
     background: #001427;
     border: 2px solid black;
     font-family: inherit;
+    font-size: 15px;
     text-align: center;
     cursor: pointer;
     transition: 0.4s;
@@ -21,7 +22,8 @@
 }
 
 #bottone1:hover {
-    background-color: #e63946;
+    /* background-color: #e63946; */
+    font-size: 16px;
 }
 
 #bottone1:active {
