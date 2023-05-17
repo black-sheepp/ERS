@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+const multer = require("multer");
+const path = require("path");
+const AVATAR_PATH = path.join('/Uploads/users/avatars')
 const userSchema = new mongoose.Schema(
      {
           firstName: {
@@ -47,10 +50,10 @@ const userSchema = new mongoose.Schema(
                type: Number,
                required: true,
           },
-          role:{
+          role: {
                type: String,
                required: true,
-          }
+          },
      },
      {
           timestamps: true,
