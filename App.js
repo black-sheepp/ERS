@@ -10,6 +10,7 @@ const passportLocal = require("./Config/passport-local-strategy");
 const mongoStore = require("connect-mongo");
 const flash = require('connect-flash');
 const customMWare = require('./Config/middleware');
+const passportGoogle = require('./Config/passport-google-oauth2-strategy');
 
 
 App.set('view engine', 'ejs');

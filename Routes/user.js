@@ -10,6 +10,8 @@ router.post(
      }),
      userctrl.createSession
 );
+router.get('/auth/google',passport.authenticate('google',{scope: ['profile','email']}));
+router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect: '/sign-in'}),userctrl.createSession)
 router.get("/admin-dash", passport.checkAuthentication, userctrl.adminDash);
 router.get("/employee-dash", passport.checkAuthentication, userctrl.employeeDash);
 router.get("/sign-out", passport.checkAuthentication, userctrl.signOut);
