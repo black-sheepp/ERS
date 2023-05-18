@@ -92,6 +92,7 @@ module.exports.pleaseUpdate = async function(req,res){
                          user.avatar  = User.avatarPath + '/' + req.file.filename;
                     }
                     user.save();
+                    req.flash('success',"Profile Updated!!")
                     return res.redirect('back')
 
                })
