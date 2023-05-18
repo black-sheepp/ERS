@@ -8,7 +8,8 @@ const passport = require("passport");
 const session = require("express-session");
 const passportLocal = require("./Config/passport-local-strategy");
 const mongoStore = require("connect-mongo");
-
+const flash = require('connect-flash');
+const customMWare = require('./Config/middleware');
 
 
 App.set('view engine', 'ejs');
@@ -37,7 +38,8 @@ App.use(passport.initialize());
 // init passport on every route call.
 App.use(passport.session());
 App.use(passport.setAuthenticatedUser);
-
+App.use(flash());
+App.use(customMWare.setFlash);
 
 
 

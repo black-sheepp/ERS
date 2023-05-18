@@ -25,8 +25,10 @@ module.exports.createUser = async function (req, res) {
 
 module.exports.createSession = function(req,res){
      if(req.user.role == "Admin"){
+          req.flash('success','Logged in Successfully')
           return res.redirect('/user/admin-dash')
      }else{
+          req.flash('success','Logged in Successfully')
           return res.redirect('/user/employee-dash')
      }
 }
@@ -47,6 +49,7 @@ module.exports.employeeDash = function(req,res){
 module.exports.signOut = function(req,res){
      req.logout(function(err) {
           if (err) { return next(err); }
+          req.flash('success','Logged out Successfully')
           res.redirect('/');
         });
 }
