@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const AVATAR_PATH = path.join("/Uploads/users/avatars");
+
 const userSchema = new mongoose.Schema(
      {
           firstName: {
@@ -73,7 +74,9 @@ const storage = multer.diskStorage({
      },
 });
 
-const upload = multer({ storage: storage });
+// static mehtods to access publically
+userSchema.statics.uploadedAvatar = multer({ storage: storage }).single('avatar');
+userSchema.statics.avatarPath = AVATAR_PATH;
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

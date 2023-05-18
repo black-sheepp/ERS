@@ -13,6 +13,7 @@ const mongoStore = require("connect-mongo");
 
 App.set('view engine', 'ejs');
 App.use(express.static("./Assets"));
+App.use('/Uploads',express.static(__dirname + '/Uploads'))
 App.use(expressLayouts);
 App.use(bodyParser.urlencoded({ extended: false }))
 App.use(require('cookie-parser')());
