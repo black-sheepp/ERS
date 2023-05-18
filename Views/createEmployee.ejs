@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/CSS/signUp.css" />
+<div class="login-box">
+     <p>Add New Employee</p>
+     <form action="/user/create-user" method="post">
+          <div class="user-box">
+               <input required="" name="firstName" type="text" />
+               <label>First Name</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="lastName" type="text" />
+               <label>Last Name</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="password" type="password" />
+               <label>Password</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="confirm_password" type="password" />
+               <label>Confirm Password</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="email" type="email" />
+               <label>Email</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="phone" type="number" />
+               <label>Phone</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="address" type="text" />
+               <label>Address</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="linkedIn" type="text" />
+               <label>LinkedIn</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="github" type="text" />
+               <label>GitHub</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="companyName" type="text" />
+               <label>Company</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="jobProfile" type="text" />
+               <label>Profile</label>
+          </div>
+          <div class="user-box">
+               <input required="" name="skills" type="text" />
+               <label>Skills</label>
+          </div>
+          <div>
+               <input type="radio" id="" name="role" value="Admin" style="color: white; "/>
+               <label for="" style="color: white;">Admin</label><br />
+               <input type="radio" id="" name="role" value="Employee" style="color: white;" />
+               <label for="" style="color: white;">Employee</label><br />
+          </div>
+          <button type="submit" class="btn btn-light mt-1">
+               Create Account
+          </button>
+     </form>
+</div>

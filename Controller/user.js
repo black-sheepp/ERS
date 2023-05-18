@@ -103,3 +103,9 @@ module.exports.pleaseUpdate = async function(req,res){
           return res.status(401).send('Unauthorised')
      }
 }
+
+module.exports.createEmployee = function(req,res){
+     return res.render('createEmployee',{
+          title: 'New Employee'
+     })
+}
