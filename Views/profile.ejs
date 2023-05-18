@@ -4,8 +4,8 @@
     <div class="card">
         <img
              class="profile-pic"
-             src="<%= user.avatar %>"
-             alt="<%= user.firstName %>"
+             src="<%= userone.avatar %>"
+             alt="<%= userone.firstName %>"
              style="object-fit: cover;"
         />
    </div>
@@ -55,7 +55,7 @@
                     >
                     <% if(locals.user.role == "Admin") {%>
                     <a
-                         href="/user/update-profile/<%= locals.user.id %>"
+                         href="/user/update-profile/<%= userone.id %>"
                          style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
                          ><i class="fa-solid fa-user-pen fa-xl"></i> Update Profile</a
                     >

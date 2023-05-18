@@ -58,16 +58,17 @@ module.exports.openProfile = async function(req,res){
      })
 }
 
-module.exports.updateProfile = function(req,res){
+module.exports.updateProfile = async function(req,res){
      return res.render("updateProfile",{
-          title: 'Update Profile'
+          title: 'Update Profile',
+          userone: await User.findById(req.params.id),
      })
 }
 
 module.exports.pleaseUpdate = async function(req,res){
-     if(req.user.id == req.params.id){
+     if(req.params.id){
           try{
-               let user = await User.findOne(req.params._id);
+               let user = await User.findById(req.params.id);
                User.uploadedAvatar(req,res,function(err){
                     if(err){
                          console.log('*********Multer Error:',err)
