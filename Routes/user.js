@@ -19,5 +19,6 @@ router.get('/profile/:id',passport.checkAuthentication,userctrl.openProfile);
 router.get('/update-profile/:id',passport.checkAuthentication,userctrl.updateProfile)
 router.post('/update-success/:id',passport.checkAuthentication,userctrl.pleaseUpdate)
 router.get('/createEmployee',passport.checkAuthentication,userctrl.createEmployee)
+router.post('/feedback-submit',passport.checkAuthentication,userctrl.feedbackSubmit)
 
 module.exports = router;

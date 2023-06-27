@@ -1,3 +1,4 @@
+const Rate = require('../Models/rate');
 const User = require('../Models/user')
 module.exports.createUser = async function (req, res) {
     try {
@@ -40,7 +41,8 @@ module.exports.adminDash = async function(req,res){
           allUser: await User.find({}).sort({firstName: 1})
      })
 }
-module.exports.employeeDash = function(req,res){
+module.exports.employeeDash = async function(req,res){
+     let rateuser = await Rate.find();
      return res.render("employeeDash",{
           title: "Employee"
      })
@@ -87,6 +89,7 @@ module.exports.pleaseUpdate = async function(req,res){
                     user.companyName = req.body.companyName;
                     user.jobProfile = req.body.jobProfile;
                     user.skills = req.body.skills;
+                    user.role = req.body.role;
 
                     if(req.file){
                          user.avatar  = User.avatarPath + '/' + req.file.filename;
@@ -108,4 +111,8 @@ module.exports.createEmployee = function(req,res){
      return res.render('createEmployee',{
           title: 'New Employee'
      })
+}
+
+module.exports.feedbackSubmit = async function(req,res){
+
 }
