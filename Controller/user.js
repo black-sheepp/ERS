@@ -1,4 +1,4 @@
-const Rate = require('../Models/rate');
+const Rate = require('../Models/review');
 const User = require('../Models/user')
 module.exports.createUser = async function (req, res) {
     try {
@@ -115,4 +115,10 @@ module.exports.createEmployee = function(req,res){
 
 module.exports.feedbackSubmit = async function(req,res){
 
+}
+
+module.exports.assignTask = function(req,res){
+     return res.render("assignTask",{
+          title: "Assign Task"
+     })
 }

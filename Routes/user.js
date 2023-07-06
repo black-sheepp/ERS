@@ -20,5 +20,6 @@ router.get('/update-profile/:id',passport.checkAuthentication,userctrl.updatePro
 router.post('/update-success/:id',passport.checkAuthentication,userctrl.pleaseUpdate)
 router.get('/createEmployee',passport.checkAuthentication,userctrl.createEmployee)
 router.post('/feedback-submit',passport.checkAuthentication,userctrl.feedbackSubmit)
+router.get('/assign-task',passport.checkAuthentication, userctrl.assignTask)
 
 module.exports = router;

@@ -14,7 +14,7 @@ const passportGoogle = require('./Config/passport-google-oauth2-strategy');
 
 
 App.set('view engine', 'ejs');
-App.use(express.static("./Assets"));
+App.use(express.static("./Assets")); 
 App.use('/Uploads',express.static(__dirname + '/Uploads'))
 App.use(expressLayouts);
 App.use(bodyParser.urlencoded({ extended: false }))

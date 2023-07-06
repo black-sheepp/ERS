@@ -11,22 +11,31 @@
 #bottone1 {
     padding: 5px 10px;
     border-radius: 9px;
-    background: #001427;
+    background: #ff006e;
     border: 2px solid black;
     font-family: inherit;
     font-size: 15px;
     text-align: center;
     cursor: pointer;
     transition: 0.4s;
-    color: white;
+    color: #001427;
+    margin-left: 10px;
 }
 
-#bottone1:hover {
-    /* background-color: #e63946; */
+.button2 {
+    border: 2px solid #001427;
+    border-radius: 0.9em;
+    padding: 0.8em 1.2em 0.8em 1em;
+    transition: all ease-in-out 0.2s;
     font-size: 16px;
+    margin-right: 10px;
+
 }
 
-#bottone1:active {
-    transform: scale(0.97);
-    box-shadow: 7px 5px 56px -10px #e9ff70;
+.button2 span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
 }
