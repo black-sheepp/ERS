@@ -3,50 +3,49 @@
 <h3 class="text-center mt-3">Assign Task</h3>
 <hr />
 
-<div class="container rounded-4 d-flex justify-content-between bg-primary text-white p-3 d-flex" style="font-size: large">
-     <div class="d-inline-flex">
-          Ask &nbsp;
-          <div class="custom-select">
-               <select>
-                    <option value="" selected disabled>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-               </select>
+<div>
+     <form
+          action="/user/perform-review"
+          method="post"
+          class="container rounded-4 d-flex justify-content-between  text-white p-2 px-4 d-flex"
+          style="font-size: large; background-color: #1d3557;">
+          <div class="d-inline-flex">
+               <p style="padding-top: 5px; margin-bottom: 0;">Ask: </p> &nbsp;
+               <div class="custom-select">
+                    <select name="reviewer" style="text-align: center; border: 2px solid yellow;">
+                         <option selected disabled>Select User</option>
+                         <% for(userone of allUser) {%>
+                         <option value="<%= userone.id %>"><%= userone.firstName %> <%= userone.lastName %></option>
+                         <%}%>
+                    </select>
+               </div>
           </div>
-     </div>
-     <div class="d-inline-flex">
-          To review &nbsp;
-          <div class="custom-select">
-               <select>
-                    <option value="" selected disabled>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-               </select>
+          <div class="d-inline-flex">
+               <p style="padding-top: 5px; margin-bottom: 0;">To review: </p> &nbsp;
+               <div class="custom-select">
+                    <select name="reviewToUser" style="text-align: center; border: 2px solid yellow;">
+                         <option selected disabled>Select User</option>
+                         <% for(userone of allUser) {%>
+                         <option value="<%= userone.id %>"><%= userone.firstName %> <%= userone.lastName %></option>
+                         <%}%>
+                    </select>
+               </div>
+               <input type="hidden" name="senderAdmin" value="<%= locals.user.id %>" />
           </div>
-     </div>
-     <div>By Admin: <strong>Shivam</strong></div>
-     <div><button class="button">Assign</button></div>
+          <div style="padding-top: 5px; margin-bottom: 0;">By Admin: <strong style="color: #2a9d8f;"><%= locals.user.firstName %></strong></div>
+          <div><button type="submit" class="button">Assign</button></div>
+     </form>
 </div>
 
 <h4 class="text-center mt-5">Activity</h4>
 <hr />
-<div class="d-inline-flex">
+<div class="d-flex justify-content-center">
      <button class="button2" style="background-color: #06d6a0">
           <span>
                <i class="fa-solid fa-plus fa-lg" style="color: #001427"></i>
                <a href="/user/createEmployee" style="text-decoration: none; color: #001427"
                     ><strong> &nbsp; Add User</strong></a
                >
-          </span>
-     </button>
-     <button class="button2" style="background-color: #ffd166">
-          <span>
-               <i class="fa-solid fa-list-check fa-lg" style="color: #001427"></i>
-               <a href="/user/" style="text-decoration: none; color: #001427"><strong> &nbsp; Assign Task</strong></a>
           </span>
      </button>
      <button class="button2" style="background-color: #f72585">
@@ -59,7 +58,7 @@
      </button>
      <button class="button2" style="background-color: #118ab2">
           <span>
-               <i class="fa-solid fa-toggle-off fa-lg" style="color: #001427"></i>
+               <i class="fa-solid fa-toggle-on fa-lg" style="color: #001427"></i>
                <a href="/user/admin-dash" style="text-decoration: none; color: #001427"
                     ><strong> &nbsp; Switch To Admin</strong></a
                >

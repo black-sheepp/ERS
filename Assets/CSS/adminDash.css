@@ -25,9 +25,9 @@
 .button2 {
     border: 2px solid #001427;
     border-radius: 0.9em;
-    padding: 0.8em 1.2em 0.8em 1em;
+    padding: 3px 8px;
     transition: all ease-in-out 0.2s;
-    font-size: 16px;
+    font-size: 14px;
     margin-right: 10px;
 
 }

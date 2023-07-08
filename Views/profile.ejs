@@ -49,20 +49,20 @@
                     <a
                          href="<%= userone.linkedIn %>"
                          target="_blank"
-                         style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
+                         style="text-decoration: none; font-weight: bold; color: #0A66C2; margin-right: 40px"
                     >
                          <i class="fa-brands fa-linkedin fa-2xl"></i> LinkedIn</a
                     >
                     <a
                          href="<%= userone.github %>"
                          target="_blank"
-                         style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
+                         style="text-decoration: none; font-weight: bold; color: #2d2e83; margin-right: 40px"
                          ><i class="fa-brands fa-square-github fa-2xl"></i> GitHub</a
                     >
                     <% if(locals.user.role == "Admin") {%>
                     <a
                          href="/user/update-profile/<%= userone.id %>"
-                         style="text-decoration: none; font-weight: bold; color: black; margin-right: 40px"
+                         style="text-decoration: none; font-weight: bold; color: #ff006e; margin-right: 40px"
                          ><i class="fa-solid fa-user-pen fa-xl"></i> Update Profile</a
                     >
                     <% } %>
@@ -72,14 +72,19 @@
 </div>
 
 <div class="container">
-     <h4 class="text-center mt-5">Your Ratings & Feedback</h4>
+     <h4 class="text-center mt-5">Ratings & Feedback</h4>
      <hr>
-     <div class="p-2 px-4 mx-5 my-2 bg-danger-subtle text-emphasis-danger rounded-4">
-          <strong>Danish</strong> reviewed you on Admin: <strong>Shivam</strong> request.
-          <p>Rating: 5 
-               <br>
-               Review: Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tempora similique adipisci minus
-               nulla quae dolorum aperiam vel iste. Explicabo!
-          </p>
-     </div>
+
+     <% for(record of reviewRecord) {%>
+          <div class=" container position-relative p-2 px-4 my-2 bg-danger-subtle text-emphasis-danger rounded-4">
+               <strong><%= record.reviewer.firstName %></strong> reviewed you on Admin: <strong><%= record.senderAdmin.firstName %></strong>'s request.
+               <p>Rating: <%= record.rating %>
+                    <br>
+                    Review: <%= record.review %>
+               </p>
+               <div class="position-absolute bottom-0 end-0 px-4 py-1" style="color: #736ced;">
+                    <small><%= String(record.createdAt).slice(0,15) %></small>
+               </div>
+          </div>
+     <% } %>
 </div>

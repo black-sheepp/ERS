@@ -19,7 +19,9 @@ router.get('/profile/:id',passport.checkAuthentication,userctrl.openProfile);
 router.get('/update-profile/:id',passport.checkAuthentication,userctrl.updateProfile)
 router.post('/update-success/:id',passport.checkAuthentication,userctrl.pleaseUpdate)
 router.get('/createEmployee',passport.checkAuthentication,userctrl.createEmployee)
-router.post('/feedback-submit',passport.checkAuthentication,userctrl.feedbackSubmit)
 router.get('/assign-task',passport.checkAuthentication, userctrl.assignTask)
+router.post('/perform-review',passport.checkAuthentication, userctrl.perfomAssignTask)
+router.post('/review-done/:id',passport.checkAuthentication, userctrl.reviewDone)
+router.get('/delete-user/:id',passport.checkAuthentication,userctrl.deleteUser)
 
 module.exports = router;

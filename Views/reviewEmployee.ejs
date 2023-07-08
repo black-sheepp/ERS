@@ -1,24 +1,29 @@
 <link rel="stylesheet" href="/CSS/reviewEmployee.css" />
 
-<div class="container">
-     <form action="">
-          <p style="font-size: 20px">Admin <strong>Shivam</strong> has assigned a task to review: <strong>Danish</strong></p>
-          <p class="text-start " style="color: #007200;">
-               As part of our ongoing efforts to promote professional growth and development within our team, we believe it is
-               important to gather insights and perspectives from fellow team members. Your feedback will contribute to a
-               well-rounded evaluation of colleague's performance, strengths, and areas for improvement. <br>Please take some
-               time to reflect on your experiences working with colleague's and provide honest and constructive feedback.
-               Your input will be valuable in helping us assess colleague's's contributions and provide appropriate support
-               for their growth.
+<div class="container mb-5">
+     <form action="/user/review-done/<%= r.reviewToUser._id %>" method="post">
+          <p style="font-size: 20px; color: #3a0ca3;">
+               Hey <strong><%= r.reviewer.firstName %></strong>, Admin
+               <strong><%= r.senderAdmin.firstName %></strong> has assigned a task to review:
+               <strong style="color: #f72585;"><%= r.reviewToUser.firstName %> <%= r.reviewToUser.lastName %></strong>
+          </p>
+          <p class="text-start" style="color: #007200">
+               As part of our ongoing efforts to promote professional growth and development within our team, we believe
+               it is important to gather insights and perspectives from fellow team members. Your feedback will
+               contribute to a well-rounded evaluation of colleague's performance, strengths, and areas for improvement.
+               <br />Please take some time to reflect on your experiences working with colleague's and provide honest
+               and constructive feedback. Your input will be valuable in helping us assess colleague's's contributions
+               and provide appropriate support for their growth.
           </p>
           <div class="container d-flex flex-column">
                <p style="font-size: 18px; margin: 0; padding: 0">
-                    On a scale of 1-5, how would you rate [colleague's name] in terms of their overall performance and
-                    productivity?
+                    On a scale of 1-5, how would you rate <strong style="color: #001427;"><%= r.reviewToUser.firstName %> </strong> in terms of
+                    their overall performance and productivity?
                </p>
                <div class="radio-input">
-                    <input value="5" name="overall_perfomance" id="color-5" type="radio" />
-                    <label for="color-5">
+
+                    <input required value="1" name="rating" id="color-red" type="radio" />
+                    <label for="color-red">
                          <span>
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -38,8 +43,8 @@
                          </span>
                     </label>
 
-                    <input value="4" name="overall_perfomance" id="color-4" type="radio" />
-                    <label for="color-4">
+                    <input required value="2" name="rating" id="color-orange" type="radio" />
+                    <label for="color-orange">
                          <span>
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -60,8 +65,8 @@
                     </label>
 
                     <!-- checked="" -->
-                    <input value="3" name="overall_perfomance" id="color-3" type="radio" />
-                    <label for="color-3">
+                    <input required value="3" name="rating" id="color-yellow" type="radio" />
+                    <label for="color-yellow">
                          <span>
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -81,8 +86,8 @@
                          </span>
                     </label>
 
-                    <input value="2" name="overall_perfomance" id="color-2" type="radio" />
-                    <label for="color-2">
+                    <input required value="4" name="rating" id="color-blue" type="radio" />
+                    <label for="color-blue">
                          <span>
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -101,9 +106,9 @@
                               </svg>
                          </span>
                     </label>
-
-                    <input value="1" name="overall_perfomance" id="color-1" type="radio" />
-                    <label for="color-1">
+                    
+                    <input required value="5" name="rating" id="color-green" type="radio" />
+                    <label for="color-green">
                          <span>
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -125,10 +130,12 @@
                </div>
           </div>
           <div class="container d-flex flex-column">
-               <p style="font-size: 18px; margin: 0; padding: 0">Write your review on [colleague's name].</p>
+               <p style="font-size: 18px; margin: 0; padding: 0">
+                    Write your review on <strong style="color: #001427;"><%= r.reviewToUser.firstName %> <%= r.reviewToUser.lastName %> </strong>
+               </p>
                <textarea
-                    name="reviewEmployee"
-                    id="reviewEmployee"
+                    required
+                    name="review"
                     cols="30"
                     rows="4"
                     style="resize: none; width: 50%; border: 3px solid #001427; border-radius: 5px"></textarea>

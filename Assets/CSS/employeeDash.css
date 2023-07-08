@@ -1,0 +1,17 @@
+
+.button2 {
+    border: 2px solid #001427;
+    border-radius: 0.9em;
+    padding: 3px 8px;
+    transition: all ease-in-out 0.2s;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .button2 span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  

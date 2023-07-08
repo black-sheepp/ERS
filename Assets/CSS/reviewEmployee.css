@@ -73,23 +73,23 @@
     transition: all 0.3s ease;
   }
   
-  .radio-input input[type=radio]#color-1 + label span {
+  .radio-input input[type=radio]#color-green + label span {
     background-color: #2ecc71;
   }
   
-  .radio-input input[type=radio]#color-2 + label span {
+  .radio-input input[type=radio]#color-blue + label span {
     background-color: #3498db;
   }
   
-  .radio-input input[type=radio]#color-3 + label span {
+  .radio-input input[type=radio]#color-yellow + label span {
     background-color: #f1c40f;
   }
   
-  .radio-input input[type=radio]#color-4 + label span {
+  .radio-input input[type=radio]#color-orange + label span {
     background-color: #f1800f;
   }
   
-  .radio-input input[type=radio]#color-5 + label span {
+  .radio-input input[type=radio]#color-red + label span {
     background-color: #f10f0f;
   }
   
@@ -97,23 +97,23 @@
     opacity: 1;
   }
   
-  .radio-input:has(input[type=radio]#color-1:checked) {
+  .radio-input:has(input[type=radio]#color-green:checked) {
     background-color: #2ecc71;
   }
   
-  .radio-input:has(input[type=radio]#color-2:checked) {
+  .radio-input:has(input[type=radio]#color-blue:checked) {
     background-color: #3498db;
   }
   
-  .radio-input:has(input[type=radio]#color-3:checked) {
+  .radio-input:has(input[type=radio]#color-yellow:checked) {
     background-color: #f1c40f;
   }
   
-  .radio-input:has(input[type=radio]#color-4:checked) {
+  .radio-input:has(input[type=radio]#color-orange:checked) {
     background-color: #f1800f;
   }
   
-  .radio-input:has(input[type=radio]#color-5:checked) {
+  .radio-input:has(input[type=radio]#color-red:checked) {
     background-color: #f10f0f;
   }
   

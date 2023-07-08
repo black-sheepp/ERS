@@ -2,22 +2,25 @@ const mongoose = require('mongoose');
 
 const rateSchema = new mongoose.Schema({
     rating: {
-        type: String,
+        type: Number,
     },
     review: {
         type: String,
     },
-    sender:{
+    senderAdmin:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    reciever:{
+    reviewer:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
     reviewToUser:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    reviewDone: {
+        type: Boolean,
     }
 },{
     timestamps: true,
