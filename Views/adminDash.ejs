@@ -15,28 +15,34 @@
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">Role</th>
+                    <th scope="col">Rating</th>
                     <th scope="col">Action</th>
                </tr>
           </thead>
           <tbody>
-               <% let i = 1 %> <% for(user of allUser) {%>
-               <tr class="table-light">
-                    <th scope="row"><%= i %></th>
-                    <td><%= user.firstName %> <%= user.lastName %></td>
-                    <td><%= user.phone %></td>
-                    <td><%= user.email %></td>
-                    <td><%= user.role %></td>
-                    <td>
-                         <a href="/user/profile/<%= user.id %>"
-                              ><i class="fa-solid fa-address-card" style="color: rgb(61, 107, 61)"></i
-                         ></a> 
-                         &nbsp; | &nbsp;
-                         <a onclick="myFunction()" href="/user/delete-user/<%= user.id %>">
-                              <i class="fa-solid fa-user-xmark" style="color: #da0117;"></i>
-                         </a>
-                    </td>
-               </tr>
-               <% i++ %> <% } %>
+               <% let i = 1 %> <% for(userone of allUser) {%>
+                    <% if(userone.role != "") {%>
+                         <tr class="table-light">
+                              <th scope="row"><%= i %></th>
+                              <td><%= userone.firstName %> <%= userone.lastName %></td>
+                              <td><%= userone.phone %></td>
+                              <td><%= userone.email %></td>
+                              <td><%= userone.role %></td>
+                              <td><%= String(userone.star).slice(0,3) %></td>
+          
+                              <td>
+                                   <a href="/user/profile/<%= userone.id %>"
+                                        ><i class="fa-solid fa-address-card" style="color: rgb(61, 107, 61)"></i
+                                   ></a> 
+                                   &nbsp; | &nbsp;
+                                   <a onclick="myFunction()" href="/user/delete-user/<%= userone.id %>">
+                                        <i class="fa-solid fa-user-xmark" style="color: #da0117;"></i>
+                                   </a>
+                              </td>
+                         </tr>
+                         <% i++ %> 
+                    <% } %>
+               <% } %>
           </tbody>
      </table>
 </div>
@@ -62,6 +68,32 @@
                <a href="/user/employee-dash" style="text-decoration: none; color: #001427"><strong> &nbsp; Switch To Employee</strong></a>
           </span>
      </button>
+     <button class="button2" style="background-color: #5e5bed;">
+          <span>
+               <i class="fa-regular fa-file-zipper" style="color: #001427;"></i>
+               <a href="/user/archived-user" style="text-decoration: none; color: #001427"><strong> &nbsp; Archived User</strong></a>
+          </span>
+     </button>
+</div>
+
+
+<div class="container">
+     <h4 class="text-center mt-5">Admin: <strong><%= locals.user.firstName %></strong>, Completed Task </h4>
+     <hr />
+
+     <% for(r of reviewTask) {%>
+          <div class="container position-relative p-2 px-4 my-2 bg-info text-dark rounded-4">
+               <strong><%= r.reviewer.firstName %></strong> reviewed <strong><%= r.reviewToUser.firstName %> <%= r.reviewToUser.lastName %></strong> on Admin: <strong><%= locals.user.firstName %></strong> request.
+               <p>
+                    Rating: <% for(i=0;i<r.rating;i++) {%> <i class="fa-regular fa-star"></i> <% } %>
+                    <br />
+                    Review: <%= r.review %>
+               </p>
+               <div class="position-absolute bottom-0 end-0 px-4 py-1" style="color: #eaf8bf;">
+                    <small><%= String(r.createdAt).slice(0,15) %></small>
+               </div>
+          </div>
+     <% } %>
 </div>
 
 

@@ -23,5 +23,7 @@ router.get('/assign-task',passport.checkAuthentication, userctrl.assignTask)
 router.post('/perform-review',passport.checkAuthentication, userctrl.perfomAssignTask)
 router.post('/review-done/:id',passport.checkAuthentication, userctrl.reviewDone)
 router.get('/delete-user/:id',passport.checkAuthentication,userctrl.deleteUser)
+router.get('/user-not-found',userctrl.userNotFound)
+router.get('/archived-user',passport.checkAuthentication,userctrl.archievedUser)
 
 module.exports = router;

@@ -72,19 +72,19 @@
 </div>
 
 <div class="container">
-     <h4 class="text-center mt-5">Ratings & Feedback</h4>
+     <h4 class="text-center mt-5">Ratings & Feedback on <strong><%= userone.firstName %></strong></h4>
      <hr>
-
-     <% for(record of reviewRecord) {%>
-          <div class=" container position-relative p-2 px-4 my-2 bg-danger-subtle text-emphasis-danger rounded-4">
-               <strong><%= record.reviewer.firstName %></strong> reviewed you on Admin: <strong><%= record.senderAdmin.firstName %></strong>'s request.
-               <p>Rating: <%= record.rating %>
-                    <br>
-                    Review: <%= record.review %>
-               </p>
-               <div class="position-absolute bottom-0 end-0 px-4 py-1" style="color: #736ced;">
-                    <small><%= String(record.createdAt).slice(0,15) %></small>
+          <% for(record of reviewRecord) {%>
+               <div class=" container position-relative p-2 px-4 my-2 bg-danger-subtle text-emphasis-danger rounded-4">
+                    <strong><%= record.reviewer.firstName %> <%= record.reviewer.lastName %></strong> reviewed <strong><%= userone.firstName %></strong> on Admin: <strong><%= record.senderAdmin.firstName %></strong>'s request.
+                    <p>Rating: <% for(i=0;i<record.rating;i++) {%> <i class="fa-regular fa-star"></i> <% } %>
+                         <br>
+                         Review: <%= record.review %>
+                    </p>
+                    <div class="position-absolute bottom-0 end-0 px-4 py-1" style="color: #736ced;">
+                         <small><%= String(record.createdAt).slice(0,15) %></small>
+                    </div>
                </div>
-          </div>
-     <% } %>
+          <% } %>
+     
 </div>

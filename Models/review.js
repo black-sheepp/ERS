@@ -21,7 +21,7 @@ const rateSchema = new mongoose.Schema({
     },
     reviewDone: {
         type: Boolean,
-    }
+    },
 },{
     timestamps: true,
 })

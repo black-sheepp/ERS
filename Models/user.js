@@ -58,6 +58,10 @@ const userSchema = new mongoose.Schema(
           avatar: {
                type: String,
           },
+          star: {
+               type: Number,
+               default: 0,
+          }
      },
      {
           timestamps: true,

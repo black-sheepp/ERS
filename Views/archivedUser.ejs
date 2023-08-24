@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/CSS/adminDash.css" />
+
+<h4 class="text-center mt-5">Archived User List</h4>
+<hr>
+<div class="container">
+     <table class="table">
+          <thead>
+               <tr class="border-line">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Action</th>
+               </tr>
+          </thead>
+          <tbody>
+               <% let i = 1 %> <% for(userone of allUser) {%>
+                    <% if(userone.role == "") {%>
+                         <tr class="table-light">
+                              <th scope="row"><%= i %></th>
+                              <td><%= userone.firstName %> <%= userone.lastName %></td>
+                              <td><%= userone.phone %></td>
+                              <td><%= userone.email %></td>
+                              <td><%= String(userone.star).slice(0,3) %></td>
+          
+                              <td>
+                                   <a href="/user/profile/<%= userone.id %>"
+                                        ><i class="fa-solid fa-address-card" style="color: rgb(61, 107, 61)"></i
+                                   ></a> 
+                              </td>
+                         </tr>
+                         <% i++ %> 
+                    <% } %>
+               <% } %>
+          </tbody>
+     </table>
+</div>

@@ -29,9 +29,13 @@ module.exports.createSession = function (req, res) {
      if (req.user.role == "Admin") {
           req.flash("success", "Logged in Successfully");
           return res.redirect("/user/admin-dash");
-     } else {
+     } else if(req.user.role == "Employee"){
           req.flash("success", "Logged in Successfully");
           return res.redirect("/user/employee-dash");
+     }
+     else{
+          req.flash("success", "Logged in Successfully");
+          return res.redirect("/user/user-not-found");
      }
 };
 
@@ -39,19 +43,24 @@ module.exports.adminDash = async function (req, res) {
      return res.render("adminDash", {
           title: "Admin",
           allUser: await User.find({}).sort({ firstName: 1 }),
+          reviewTask: await Review.find({ senderAdmin: req.user.id, reviewDone: true })
+               .sort({ createdAt: -1 })
+               .populate({ path: "senderAdmin", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewer", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewToUser", select: ["firstName", "lastName"] }),
      });
 };
 
 module.exports.employeeDash = async function (req, res) {
      try {
           const findReview = await Review.find({ reviewer: req.user.id, reviewDone: false })
-               .sort({updatedAt: -1})
+               .sort({ updatedAt: -1 })
                .populate({ path: "senderAdmin", select: ["firstName", "lastName"] })
                .populate({ path: "reviewer", select: ["firstName", "lastName"] })
                .populate({ path: "reviewToUser", select: ["firstName", "lastName"] });
 
           const reviewHistory = await Review.find({ reviewer: req.user.id, reviewDone: true })
-               .sort({updatedAt: -1})
+               .sort({ updatedAt: -1 })
                .populate({ path: "senderAdmin", select: ["firstName", "lastName"] })
                .populate({ path: "reviewer", select: ["firstName", "lastName"] })
                .populate({ path: "reviewToUser", select: ["firstName", "lastName"] });
@@ -82,8 +91,8 @@ module.exports.signOut = function (req, res) {
 };
 
 module.exports.openProfile = async function (req, res) {
-     const reviewRecord = await Review.find({ reviewToUser: req.user.id, reviewDone: true })
-          .sort({updatedAt: -1})
+     const reviewRecord = await Review.find({ reviewToUser: req.params.id, reviewDone: true })
+          .sort({ updatedAt: -1 })
           .populate({ path: "senderAdmin", select: ["firstName", "lastName"] })
           .populate({ path: "reviewer", select: ["firstName", "lastName"] })
           .populate({ path: "reviewToUser", select: ["firstName", "lastName"] });
@@ -148,6 +157,16 @@ module.exports.assignTask = async function (req, res) {
      return res.render("assignTask", {
           title: "Assign Task",
           allUser: await User.find({}).sort({ firstName: 1 }),
+          reviewPending: await Review.find({ senderAdmin: req.user.id, reviewDone: false })
+               .sort({ createdAt: -1 })
+               .populate({ path: "senderAdmin", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewer", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewToUser", select: ["firstName", "lastName"] }),
+          reviewDone: await Review.find({ senderAdmin: req.user.id, reviewDone: true })
+               .sort({ createdAt: -1 })
+               .populate({ path: "senderAdmin", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewer", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewToUser", select: ["firstName", "lastName"] }),
      });
 };
 
@@ -182,24 +201,70 @@ module.exports.perfomAssignTask = async function (req, res) {
 
 module.exports.reviewDone = async function (req, res) {
      try {
-          const review = await Review.findOneAndUpdate({reviewToUser: req.params.id, reviewDone: false},
+          const review = await Review.findOneAndUpdate(
+               { reviewToUser: req.params.id, reviewDone: false },
                {
                     rating: req.body.rating,
                     review: req.body.review,
                     reviewDone: true,
                }
           );
-          req.flash("success", "Review Submitted!");
+
+          let allReviews = await Review.find({ reviewToUser: req.params.id, reviewDone: true });
+          let usercall = req.params.id
+          await calculateStar(allReviews, usercall);
+
+          await req.flash("success", "Review Submitted!");
           return res.redirect("/user/employee-dash");
      } catch (error) {
           console.log(error);
      }
 };
 
+async function calculateStar(allReviews,usercall) {
+     let reviewCount = 0;
+     let reviewSum = 0;
+     let finalReviewAvg = 0;
+     for (let reviewOne of allReviews) {
+          reviewSum += reviewOne.rating;
+          reviewCount++;
+     }
+     finalReviewAvg = reviewSum / reviewCount;
+
+     await User.findOneAndUpdate(
+          { _id: usercall},
+          {
+               star: finalReviewAvg,
+          }
+     );
+
+     return; 
+}
 
 module.exports.deleteUser = async function (req, res) {
-     let deletedUser = await User.deleteOne({ _id: req.params.id });
+     let deletedUser = await User.findByIdAndUpdate({ _id: req.params.id },{
+          role: "",
+     });
      console.log(deletedUser);
      req.flash("success", "Employee Deleted!");
      return res.redirect("back");
 };
+
+module.exports.userNotFound = function(req,res){
+     req.flash("error", "User not found as Admin/Employee!");
+     return res.render('usernotfound',{
+          title: "User Not Found"
+     });
+}
+
+module.exports.archievedUser = async function(req,res){
+     return res.render("archivedUser", {
+          title: "Archived Users",
+          allUser: await User.find({}).sort({ firstName: 1 }),
+          reviewTask: await Review.find({ senderAdmin: req.user.id, role: "" })
+               .sort({ createdAt: -1 })
+               .populate({ path: "senderAdmin", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewer", select: ["firstName", "lastName"] })
+               .populate({ path: "reviewToUser", select: ["firstName", "lastName"] }),
+     });
+} 
