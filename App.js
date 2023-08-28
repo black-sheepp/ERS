@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path')
 const App = express();
 const port = 8011;
 const expressLayouts = require("express-ejs-layouts");
@@ -13,6 +14,7 @@ const customMWare = require("./Config/middleware");
 const passportGoogle = require("./Config/passport-google-oauth2-strategy");
 
 App.set("view engine", "ejs");
+App.set('views', path.join(__dirname) + '/Views');
 App.use(express.static("./Assets"));
 App.use("/Uploads", express.static(__dirname + "/Uploads"));
 App.use(expressLayouts);
