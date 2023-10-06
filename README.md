@@ -9,7 +9,7 @@
 
 • Scalable MongoDB database structure for a responsive and reliable system as the user base expanded.
 
-In the project directory, you can run:
+# In the project directory, you can run:
 
 Runs the app in the development mode: npm start
 
