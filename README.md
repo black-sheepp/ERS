@@ -11,8 +11,8 @@
 
 In the project directory, you can run:
 
-npm start
-Runs the app in the development mode.
+Runs the app in the development mode: npm start
+
 Open http://localhost:8011 to view it in your browser.
 
 The page will reload when you make changes.
