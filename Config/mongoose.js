@@ -1,4 +1,4 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/ERS_DEV')
+mongoose.connect('mongodb+srv://fullstackmerndevelop:<password>@cluster0.3wruxeu.mongodb.net/?retryWrites=true&w=majority')
   .then(() => console.log('MongoDB Connected!'));
