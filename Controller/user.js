@@ -25,6 +25,7 @@ module.exports.createUser = async function (req, res) {
      }
 };
 
+// sign in methods for controllers
 module.exports.createSession = function (req, res) {
      if (req.user.role == "Admin") {
           req.flash("success", "Logged in Successfully");
