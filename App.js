@@ -30,7 +30,7 @@ App.use(
 			maxAge: 1000 * 60 * 100 * 10,
 		},
 		store: mongoStore.create({
-			mongoUrl: "mongodb://127.0.0.1:27017/ERS_DEV",
+			mongoUrl: "mongodb+srv://shivamERS:bMEGDTOPGg0TiZ9A@cluster0.kjanyoy.mongodb.net/?retryWrites=true&w=majority",
 			autoRemove: "disabled", // Default
 		}),
 	})
